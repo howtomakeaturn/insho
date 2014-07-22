@@ -31,9 +31,9 @@ class Admin extends CI_Controller {
         }
     }
     
-    function delete($id){
-        $this->ol->delete('articles', $id);
-        redirect('/demo');
+    function delete(){
+        $this->ol->delete('works', $this->input->post('id'));
+        redirect('/admin');
     }
 
     function edit(){

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class Work extends CI_Controller {
     
     protected $data = array();
     
@@ -8,13 +8,12 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->library('OutlawWrapper', '', 'ol');
         $this->load->helper('url');        
-        $this->template->set_layout('basic');
+        $this->template->set_layout('work');
+        $this->data['works'] = $this->ol->readAll('works');
     }
 
-    public function index(){
-      
-        $this->data['works'] = $this->ol->readAll('works');
-        $this->template->build('admin/index', $this->data);
+    public function index(){      
+        $this->template->build('work/index', $this->data);
     }
 
     public function create()
@@ -42,9 +41,10 @@ class Admin extends CI_Controller {
         $this->template->build('admin/edit', $this->data);        
     }
 
-    function view($id){
-        $this->data['article'] = $this->ol->read('articles', $id);
-        $this->template->build('demo/view', $this->data);        
+    function view($url){
+        $work = R::findOne('works', ' url = ? ',array($url));        
+        $this->data['work'] = $work;
+        $this->template->build('work/view', $this->data);        
     }
     
     function update(){

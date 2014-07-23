@@ -19,6 +19,12 @@
         img{
             max-width: 100%;
         }
+        
+        .work-box{
+            margin-bottom: 10px;
+            height: 180px;
+            overflow: hidden;
+        }
       
     </style>
 
@@ -26,8 +32,24 @@
 	<body>
     
     <div class='container'>
+        <div class='row'>
+            <div class='col-sm-12'>
+                <h2><a href='/'>Title</a></h2>
+                <hr/>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-sm-3'>
+                <?php foreach($works as $work):?>
+                    <a href='/<?php echo $work->url; ?>'><?php echo $work->name; ?></a>
+                    <br/><br/>
+                <?php endforeach; ?>
+            </div>
+            <div class='col-sm-9 '>
+                <?php echo $template['body']; ?>            
+            </div>            
+        </div>
         
-            <?php echo $template['body']; ?>
         
         
     </div>

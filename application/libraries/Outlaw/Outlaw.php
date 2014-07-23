@@ -249,5 +249,9 @@ function button_to($html_class, $url, $data, $label){
     }    
     $result .= "<button class='$html_class'>$label</button>";
     $result .= "</form>";
-    return $result;  
+    echo $result;  
+}
+
+function hidden($name, $value){
+    echo "<input type='hidden' name='$name' value='$value' />";
 }

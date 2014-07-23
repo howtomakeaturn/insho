@@ -34,12 +34,14 @@
     <div class='container'>
         <div class='row'>
             <div class='col-sm-12'>
-                <h2><a href='/'>Title</a></h2>
+                <h2><a href='/'><?php echo $site->name ?></a></h2>
                 <hr/>
             </div>
         </div>
         <div class='row'>
             <div class='col-sm-3'>
+                    <a href='/contact'>Contact</a>
+                    <br/><br/>
                 <?php foreach($works as $work):?>
                     <a href='/<?php echo $work->url; ?>'><?php echo $work->name; ?></a>
                     <br/><br/>

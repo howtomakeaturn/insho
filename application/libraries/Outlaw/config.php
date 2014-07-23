@@ -45,4 +45,10 @@ $config['lang'] = 'en';
  * Path to store the uploaded files.
  */                
 $config['upload_path'] = './upload/';             
-        
+
+$config['singleton_data'] = array(
+    'site' => array(
+        'name' => 'Kelly',
+        'contact' => 'Hi, I am Kelly'
+    )
+);

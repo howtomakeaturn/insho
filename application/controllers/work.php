@@ -10,6 +10,7 @@ class Work extends CI_Controller {
         $this->load->helper('url');        
         $this->template->set_layout('work');
         $this->data['works'] = $this->ol->readAll('works');
+        $this->data['site'] = $this->ol->readSingleton('site');
     }
 
     public function index(){      
@@ -55,6 +56,10 @@ class Work extends CI_Controller {
         else{
             exit(var_export($this->ol->getErrors()));
         }
+    }
+    
+    function contact(){
+        $this->template->build('work/contact', $this->data);          
     }
 
     

@@ -10,6 +10,7 @@ class Outlaw{
     protected $validate;
     protected $errors;
     protected $uploadPath;
+    protected $singletonData;
 
     // Transform the $_FILES if it's multiple files into
     // a cleaner format.
@@ -53,8 +54,40 @@ class Outlaw{
         $this->validate = $config['rules'];
         
         $this->uploadPath = $config['upload_path'];                
+        $this->singletonData = $config['singleton_data'];
+        
+        $this->initializeSingletonData();
+    }
+    
+    /*
+     * Create tables that only contain one row if needed.
+     */    
+    function initializeSingletonData(){
+        foreach($this->singletonData as $tableName => $tableData){
+            // check if table created or not            
+            // if it existed, we leave.
+            if (R::findOne($tableName)){
+                continue;
+            }
+            
+            $instance = R::dispense($tableName);
+            $instance->import($tableData);
+            R::store($instance);
+        }
+    }
+    
+    // Fetch the singleton data from table.
+    function readSingleton($tableName){
+        if (!$tableName) throw new OutlawNoTableName();
+        $instance = R::findOne($tableName);
+        return $instance;
     }
 
+    // Update the singleton data into table
+    function updateSingleton($tableName){
+        $instance = R::findOne($tableName);
+        return $this->update($tableName, $instance->id);        
+    }
 
     /*
      * A very dangerous method which inserting data into database.

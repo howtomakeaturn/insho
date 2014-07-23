@@ -57,6 +57,19 @@ class Admin extends CI_Controller {
         }
     }
 
+    function edit_contact(){
+        $this->data['site'] = $this->ol->readSingleton('site');
+        $this->template->build('admin/edit_contact', $this->data);        
+    }
+
+    function update_contact(){
+        if ($this->ol->updateSingleton('site')){
+            redirect('/admin/');
+        }
+        else{
+            exit(var_export($this->ol->getErrors()));
+        }      
+    }
     
 }
 

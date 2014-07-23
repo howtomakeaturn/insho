@@ -14,3 +14,7 @@ function button_to($html_class, $url, $data, $label){
 function hidden($name, $value){
     echo "<input type='hidden' name='$name' value='$value' />";
 }
+
+function look($v){
+    exit(var_export($v));
+}

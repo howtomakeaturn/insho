@@ -11,7 +11,7 @@
     <img src='/upload/<?php echo $work->image ?>' />
     <br />
     <br />
-    <p>系列圖</p>
+    <p>系列圖<i>（可多選。但若要指定順序就一張一張上傳。）</i></p>
     <input type="file" name='ol_photos[]' class='form-control' multiple />
     <hr/>
     <p><input type='submit' value='update' /></p>
@@ -20,7 +20,7 @@
     <?php foreach($work->ownPhotos as $photo): ?>
         <img src='/upload/<?php echo $photo->name ?>' />    
         <br />
-        <?php button_to('', '/admin/delete_photo', ['id'=>$photo->id], 'delete') ?>        
+        <?php button_to('btn btn-xs btn-danger', '/admin/delete_photo', ['id'=>$photo->id], 'delete') ?>        
         <br />
         <br />
     <?php endforeach; ?>

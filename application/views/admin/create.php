@@ -7,8 +7,6 @@
     <input type='text' name='ol_name' class='form-control' required />
     <p>主圖</p>
     <input type="file" name='ol_image' class='form-control' required />
-    <p>系列圖</p>
-    <input type="file" name='ol_photos[]' class='form-control' multiple required />
     <hr/>
-    <p><input type='submit' value='create' /></p>
+    <p><input type='submit' value='下一步，上傳系列圖' /></p>
 </form>

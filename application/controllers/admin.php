@@ -25,8 +25,8 @@ class Admin extends CI_Controller {
     }
         
     function inject(){
-        if ( $this->ol->create('works') ){
-            redirect('/admin');          
+        if ( $id = $this->ol->create('works') ){
+            redirect('/admin/edit/' . $id);          
         }
         else{
             exit(var_export($this->ol->getErrors()));
@@ -51,7 +51,7 @@ class Admin extends CI_Controller {
     function update(){
         $id = $_POST['id'];
         if ($this->ol->update('works', $id)){
-            redirect('/admin/');
+            redirect('/admin/edit/' . $id);
         }
         else{
             exit(var_export($this->ol->getErrors()));

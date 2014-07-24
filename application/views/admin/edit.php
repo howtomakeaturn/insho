@@ -20,7 +20,7 @@
     <?php foreach($work->ownPhotos as $photo): ?>
         <img src='/upload/<?php echo $photo->name ?>' />    
         <br />
-        <?php button_to('btn btn-danger', '/admin/delete_photo', ['id'=>$photo->id], 'delete') ?>        
+        <?php button_to('', '/admin/delete_photo', ['id'=>$photo->id], 'delete') ?>        
         <br />
         <br />
     <?php endforeach; ?>

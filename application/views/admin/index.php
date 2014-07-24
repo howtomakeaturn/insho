@@ -1,4 +1,5 @@
 <a href='/admin/create'>New</a>
+<a href='/admin/logout' class='pull-right'>Logout</a>
 <hr/>
 <p><a href='/contact' target='_blank'>Contact</a></p>
 <?php button_to('', '/admin/edit_contact', [], 'edit') ?>

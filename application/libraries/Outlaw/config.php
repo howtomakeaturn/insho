@@ -52,3 +52,8 @@ $config['singleton_data'] = array(
         'contact' => 'Hi, I am Kelly'
     )
 );
+
+$config['auth'] = array(
+    'user' => 'kelly',
+    'password' => 'kelly'
+);

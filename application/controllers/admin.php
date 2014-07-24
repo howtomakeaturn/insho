@@ -9,6 +9,8 @@ class Admin extends CI_Controller {
         $this->load->library('OutlawWrapper', '', 'ol');
         $this->load->helper('url');        
         $this->template->set_layout('basic');
+
+        $this->ol->protect();
     }
 
     public function index(){
@@ -69,6 +71,11 @@ class Admin extends CI_Controller {
         else{
             exit(var_export($this->ol->getErrors()));
         }      
+    }
+    
+    function logout(){
+        $this->ol->logout();
+        redirect('/admin');
     }
     
 }

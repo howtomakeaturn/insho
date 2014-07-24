@@ -38,8 +38,7 @@ class Admin extends CI_Controller {
         redirect('/admin');
     }
 
-    function edit(){
-        $id = $_REQUEST['id'];
+    function edit($id){
         $this->data['work'] = $this->ol->read('works', $id);
         $this->template->build('admin/edit', $this->data);        
     }
@@ -76,6 +75,12 @@ class Admin extends CI_Controller {
     function logout(){
         $this->ol->logout();
         redirect('/admin');
+    }
+    
+    function delete_photo(){
+        $id = $_REQUEST['id'];
+        $this->ol->delete('photos', $id);
+        redirect($_SERVER['HTTP_REFERER']);      
     }
     
 }

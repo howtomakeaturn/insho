@@ -12,6 +12,11 @@
     <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>      
 
     <style>
+        body{
+            font-family: Lato, sans-serif, 微軟正黑體;
+        }      
+      
+      
         a, a:hover{
             color: black;
         }

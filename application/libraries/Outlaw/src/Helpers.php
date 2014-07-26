@@ -18,3 +18,7 @@ function hidden($name, $value){
 function look($v){
     exit(var_export($v));
 }
+
+function typography($string){
+    return nl2br(str_replace(' ','&nbsp;',htmlentities($string)));
+}

@@ -23,7 +23,7 @@
       
         img{
             max-width: 100%;
-            max-height: 650px;
+            max-height: 600px;
         }
         
         .work-box{

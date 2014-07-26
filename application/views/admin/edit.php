@@ -8,11 +8,13 @@
     <input type='text' name='ol_name' value='<?php echo $work->name ?>' class='form-control' required />
     <p>主圖</p>
     <input type="file" name='ol_image' class='form-control' />
+    <p class='help-block'>圖片名稱請以英文、數字、減號、底線為主。不要有空白或是奇怪的符號。</p>
     <img src='/upload/<?php echo $work->image ?>' />
     <br />
     <br />
     <p>系列圖<i>（可多選。但若要指定順序就一張一張上傳。）</i></p>
     <input type="file" name='ol_photos[]' class='form-control' multiple />
+    <p class='help-block'>圖片名稱請以英文、數字、減號、底線為主。不要有空白或是奇怪的符號。</p>
     <hr/>
     <p><input type='submit' value='update' /></p>
 </form>

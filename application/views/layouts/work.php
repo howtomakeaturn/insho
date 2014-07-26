@@ -31,6 +31,10 @@
             height: 180px;
             overflow: hidden;
         }
+        
+        .layout-sidebar{
+            line-height: 1.5;
+        }
       
     </style>
 
@@ -49,8 +53,8 @@
                     <a href='/contact'>Contact</a>
                     <br/><br/>
                 <?php foreach($works as $work):?>
-                    <a href='/<?php echo $work->url; ?>'><?php echo $work->name; ?></a>
-                    <br/><br/>
+                    <a href='/<?php echo $work->url; ?>' class='layout-sidebar'><?php echo $work->name; ?></a>
+                    <br/>
                 <?php endforeach; ?>
             </div>
             <div class='col-sm-9 '>

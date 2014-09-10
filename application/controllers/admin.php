@@ -83,6 +83,30 @@ class Admin extends CI_Controller {
         redirect($_SERVER['HTTP_REFERER']);      
     }
     
+    /*
+     * Single Management
+     */
+
+    function single_management(){
+        $this->data['singles'] = $this->ol->readAll('singles');
+        $this->template->build('admin/single_management', $this->data);        
+    }
+
+    function add_single(){
+        if ( $id = $this->ol->create('singles') ){
+            redirect('/admin/single_management');          
+        }
+        else{
+            exit(var_export($this->ol->getErrors()));
+        }
+    }
+
+    function delete_single(){
+        $id = $_REQUEST['id'];
+        $this->ol->delete('singles', $id);
+        redirect($_SERVER['HTTP_REFERER']);      
+    }
+    
 }
 
 /* End of file welcome.php */

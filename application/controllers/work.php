@@ -14,6 +14,7 @@ class Work extends CI_Controller {
     }
 
     public function index(){      
+        $this->data['singles'] = $this->ol->readAll('singles');      
         $this->template->build('work/index', $this->data);
     }
 
@@ -44,8 +45,15 @@ class Work extends CI_Controller {
 
     function view($url){
         $work = R::findOne('works', ' url = ? ',array($url));        
-        $this->data['work'] = $work;
-        $this->template->build('work/view', $this->data);        
+        if ($work){
+            $this->data['work'] = $work;
+            $this->template->build('work/view', $this->data);        
+        }
+        else{
+            $single = R::findOne('singles', ' url = ? ',array($url));        
+            $this->data['single'] = $single;
+            $this->template->build('work/view_single', $this->data);        
+        }
     }
     
     function update(){

@@ -1,5 +1,17 @@
 <div class="row">
 
+    <?php foreach($singles as $single): ?>
+      <div class="col-sm-3 work-box">
+        <a href="/<?php echo $single->url ?>" class="">
+            <?php 
+                list($width, $height) = getimagesize('./upload/' . $single->photo);
+            ?>
+            <div class='work-pic-box' style='width: <?php echo $width ?>px; height: <?php echo $height ?>px; background:url(/upload/<?php echo $single->photo ?>) no-repeat; background-size: contain;'></div>
+
+        </a>
+      </div>
+    <?php endforeach; ?>
+
     <?php foreach($works as $work): ?>
       <div class="col-sm-3 work-box">
         <a href="/<?php echo $work->url ?>" class="">
